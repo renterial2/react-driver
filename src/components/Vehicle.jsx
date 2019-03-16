@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const VehicleBody = (props) => {
-    const VehicleBodyStyle = {
+const Vehicle = (props) => {
+    const VehicleStyle = {
         fill: '#ce2029',
         stroke: '#75450e',
         strokeWidth: '2px',
@@ -11,14 +11,12 @@ const VehicleBody = (props) => {
     }
 
     return (
-        <rect style={VehicleBodyStyle} x={props.x}/>
+        <rect style={VehicleStyle} x={props.x}/>
     )
 }
 
 const mapStateToProps = (state) => ({
-    // speedX: state.speedX,
     x: state.x,
-    // y: state.y
   })
 
-export default connect(mapStateToProps, null)(VehicleBody)
+export default connect(mapStateToProps, null)(Vehicle)

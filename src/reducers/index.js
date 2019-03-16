@@ -1,6 +1,11 @@
+// const initialGameState = {
+//     movingObject: [],
+    
+// }
+
 const initialState = {
     speedX: 0,
-    x: 10,
+    x: 0,
 }
 
 function reducer(state = initialState, action) {
@@ -18,6 +23,7 @@ function reducer(state = initialState, action) {
                 speedX: state.speedX - 1,
                 x: state.x + state.speedX
             }
+            
         case 'RATE':
             return {
                 x: state.speedX + state.x,
