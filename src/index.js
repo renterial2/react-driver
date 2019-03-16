@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import './index.css';
-import Game from './containers/Game';
+import App from './App'
+// import Game from './containers/Game';
 import reducer from './reducers'
 import * as serviceWorker from './serviceWorker';
 
@@ -11,13 +12,13 @@ import * as serviceWorker from './serviceWorker';
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
     reducer,
-    window._REDUX_DEVTOOLS_EXTENSION_&& window._REDUX_DEVTOOLS_EXTENSION_
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 /* eslint-enable */
 
 ReactDOM.render(
     <Provider store={store}>
-        <Game />
+        <App />
     </Provider>,
     document.getElementById('root')
 );

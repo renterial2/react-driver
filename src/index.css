@@ -17,3 +17,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#rightButton {
+  width: 122px;
+  height: 45px;
+  position:relative;
+  /* margin: -20px -50px; */
+  top:50%; 
+  left:44.5%;
+}
+
+#leftButton {
+  width: 122px;
+  height: 45px;
+  /* margin: -20px -50px; */
+  position:relative;
+  top:50%; 
+  left:44.5%;
+}
