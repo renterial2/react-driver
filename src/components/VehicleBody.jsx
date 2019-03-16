@@ -1,5 +1,5 @@
 import React from 'react'
-// import { pathFromBezierCurve } from '../utils/formulas'
+import { connect } from 'react-redux'
 
 const VehicleBody = (props) => {
     const VehicleBodyStyle = {
@@ -7,17 +7,18 @@ const VehicleBody = (props) => {
         stroke: '#75450e',
         strokeWidth: '2px',
         width: 50,
-        height: 70
+        height: 70,
     }
 
-    // const bodyWidth = 80
-    // const halfBody = 40
-    // const height = 60
-    // const negativeHeight = height * -1
-
     return (
-        <rect style={VehicleBodyStyle} />
+        <rect style={VehicleBodyStyle} x={props.x}/>
     )
 }
 
-export default VehicleBody
+const mapStateToProps = (state) => ({
+    // speedX: state.speedX,
+    x: state.x,
+    // y: state.y
+  })
+
+export default connect(mapStateToProps, null)(VehicleBody)
