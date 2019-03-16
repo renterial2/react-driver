@@ -16,7 +16,8 @@ const Canvas = (props) => {
 
             {/* <Road /> */}
 
-            <Hazard position={{x: 0, y: -700}}/>
+            <Hazard position={{x: -150, y: -700}}/>
+            <Hazard position={{x: 150, y: -700}}/>
 
             <Vehicle />
                       
