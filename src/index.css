@@ -24,7 +24,7 @@ code {
   position:relative;
   /* margin: -20px -50px; */
   top:50%; 
-  left:44.5%;
+  /* left:50%; */
 }
 
 #leftButton {
@@ -33,5 +33,5 @@ code {
   /* margin: -20px -50px; */
   position:relative;
   top:50%; 
-  left:44.5%;
+  /* left:50%; */
 }
