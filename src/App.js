@@ -11,11 +11,13 @@ class App extends Component {
     this.moveLeft = this.moveLeft.bind(this)
     this.moveRight = this.moveRight.bind(this)
   }
+  
 
   componentDidMount() {
     setInterval(() => {
       this.props.rate()
-    }, 25)
+      this.props.moveHazards()
+    }, 10)
   }
 
   moveLeft (event) {
@@ -29,18 +31,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Canvas />
-        <LeftButton id="leftButton" handleClick={(event) => this.moveLeft(event)}/>
-        <RightButton id="rightButton" handleClick={(event) => this.moveRight(event)}/>
+        <Canvas gamestate={this.props.gamestate} startGame={this.props.startGame} />
+        <LeftButton id="leftButton" handleClick={(event) => this.moveLeft(event)} />
+        <RightButton id="rightButton" handleClick={(event) => this.moveRight(event)} />
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  gamestate: state.gamestate,
+})
+
 const mapDispatchToProps = (dispatch) => ({
+  moveHazards: () => dispatch({type: 'MOVE_HAZARDS'}),
+
+  startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),
   rate: () => dispatch({type: "RATE"})
 })
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

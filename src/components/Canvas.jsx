@@ -6,6 +6,7 @@ import Hazard from './Hazard'
 import Vehicle from './Vehicle'
 
 const Canvas = (props) => {
+    console.log(props)
     const gameHeight = gameWidth
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
 
@@ -15,13 +16,22 @@ const Canvas = (props) => {
             // perserveAspectRatio="xMaxYMax none"
             viewBox={viewBox}
         >
-
             {/* <Road /> */}
 
-            <Hazard position={{x: -150, y: -700}}/>
-            <Hazard position={{x: 150, y: -700}}/>
+            { ! props.gamestate.started &&
+                <g>
+                    <StartGame onClick={() => props.startGame()} />
+                </g>
+            }
+            
+            { props.gamestate.hazards.map(hazard => ( <Hazard key={hazard.id} position={hazard.position} /> )) }
 
-            <StartGame onClick={() => console.log('Start!')} />
+            {/* { props.gamestate.started && 
+                <g>
+                    <Hazard position={{x: -150, y: -700}}/>
+                    <Hazard position={{x: 150, y: -700}}/>
+                </g>
+            } */}
 
             <Vehicle />
                       
