@@ -1,4 +1,3 @@
-// import createHazards from './createHazards'
 import moveHazards from './moveHazards'
 
 const initialGameState = {
