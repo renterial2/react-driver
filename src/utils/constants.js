@@ -1,10 +1,12 @@
 export const gameWidth = 890
 
+export const gameHeight = 890
+
 export const createInterval = 1000
 
 export const maxHazards = 8
 
-export const hazardsStarterYAxis = -780
+export const hazardsStarterYAxis = -900
 
 export const hazardsStarterPositions = [
     -600

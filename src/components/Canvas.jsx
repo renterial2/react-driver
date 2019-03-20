@@ -6,7 +6,7 @@ import Hazard from './Hazard'
 import Vehicle from './Vehicle'
 
 const Canvas = (props) => {
-    console.log(props)
+    // console.log(props)
     const gameHeight = gameWidth
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
 
