@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Canvas from './components/Canvas'
 import RightButton from './components/RightButton'
 import LeftButton from './components/LeftButton'
-import './index.css'
 
 class App extends Component {
   constructor(props) {
@@ -14,11 +13,11 @@ class App extends Component {
   
   componentDidMount() {
     window.onresize = () => {
-      var cnvHeight = window.innerHeight - 50;
-      const cnv = document.getElementById('driver');
-      cnv.style.width = `${window.innerWidth}px`;
-      cnv.style.height = `${cnvHeight}px`;
-    };
+      var cnvHeight = window.innerHeight - 50
+      const cnv = document.getElementById('driver')
+      cnv.style.width = `${window.innerWidth}px`
+      cnv.style.height = `${cnvHeight}px`
+    }
     window.onresize();
     setInterval(() => {
       this.props.rate()
