@@ -1,7 +1,7 @@
 import React from 'react'
-// import Road from './Road'
 import { gameWidth } from '../utils/constants'
 import StartGame from './StartGame'
+import CurrentScore from './CurrentScore'
 import Hazard from './Hazard'
 import Vehicle from './Vehicle'
 
@@ -16,7 +16,6 @@ const Canvas = (props) => {
             // perserveAspectRatio="xMaxYMax none"
             viewBox={viewBox}
         >
-            {/* <Road /> */}
 
             { ! props.gamestate.started &&
                 <g>
@@ -26,15 +25,21 @@ const Canvas = (props) => {
             
             { props.gamestate.hazards.map(hazard => ( <Hazard key={hazard.id} position={hazard.position} /> )) }
 
-            {/* { props.gamestate.started && 
-                <g>
-                    <Hazard position={{x: -150, y: -700}}/>
-                    <Hazard position={{x: 150, y: -700}}/>
-                </g>
-            } */}
+            {/* { props.gamestate.vehiclePositions.map(vehiclePosition => (
+                <Vehicle key={vehiclePosition.id} position={vehiclePosition.position}/>
+            ))} */}
 
             <Vehicle />
-                      
+
+            
+
+            { props.gamestate.started &&
+                <g>
+                    <CurrentScore score={0} />
+                </g>
+            }
+
+
         </svg>
     )
 }

@@ -1,19 +1,31 @@
 import createHazards from './createHazards'
+import checkCollisions from './checkCollisions'
 
-function moveHazards(state) {
+function moveHazards(state, action) {
+  if (!state.gamestate.started) return state
+  const newState = createHazards(state)
+  const now = (new Date()).getTime()
+  let hazards = newState.gamestate.hazards.filter(hazard => (
+    (now - hazard.createdAt) < 4000
+  ))
 
-    const newState = createHazards(state)
-    const now = (new Date()).getTime();
-    const hazards = newState.gamestate.hazards.filter(hazard => (
-      (now - hazard.createdAt) < 5000
-    ))
+  let vehicleX = state.x
+  let vehicleY = state.y
 
-    return {
-        ...newState,
-        gamestate: {
-          ...newState.gamestate,
-          hazards,
-        }
+  const objectsCollected = checkCollisions(vehicleX, vehicleY, hazards)
+  // const vehiclePositionsCollected = objectsCollected.map(object => (object.vehicleId))
+  // const hazardsCollected = objectsCollected.map(object => (object.hazardId))
+
+  // // vehiclePositions = vehiclePositions.filter(vehicle => (vehiclePositionsCollected.indexOf(vehicle.id)))
+  // hazards = hazards.filter(hazard => (hazardsCollected.indexOf(hazard.id)))
+
+
+  return {
+      ...newState,
+      gamestate: {
+        ...newState.gamestate,
+        hazards,
+      }
     }
 }
 

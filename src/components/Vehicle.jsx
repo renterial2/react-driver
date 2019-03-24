@@ -11,12 +11,13 @@ const Vehicle = (props) => {
     }
 
     return (
-        <rect style={VehicleStyle} x={props.x}/>
+        <rect style={VehicleStyle} x={props.x} y={props.y}/>
     )
 }
 
 const mapStateToProps = (state) => ({
     x: state.x,
+    y: state.y,
   })
 
 export default connect(mapStateToProps, null)(Vehicle)

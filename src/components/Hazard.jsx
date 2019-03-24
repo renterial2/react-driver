@@ -17,7 +17,7 @@ const Move = styled.g`
 
 const Hazard = (props) => {
     const hazardStyle = {
-        fill: '#777',
+        fill: "yellow",
         stroke: '#444',
         strokeWidth: '2px',
         width: 50,
