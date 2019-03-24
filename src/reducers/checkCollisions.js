@@ -16,10 +16,10 @@ const checkCollisions = (vehicleX, vehicleY, hazards) => {
         const hazardHeight = 70
 
         const hazardRect = {
-            x1: calculatedHazardPosition.x - hazardWidth,
-            y1: calculatedHazardPosition.y - hazardHeight,
-            x2: calculatedHazardPosition.x + hazardWidth,
-            y2: calculatedHazardPosition.y + hazardHeight,
+            x1: calculatedHazardPosition.x,
+            y1: calculatedHazardPosition.y,
+            x2: calculatedHazardPosition.x,
+            y2: calculatedHazardPosition.y,
         }
         
         const calculatedVehiclePosition = {
