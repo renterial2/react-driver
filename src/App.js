@@ -12,8 +12,14 @@ class App extends Component {
     this.moveRight = this.moveRight.bind(this)
   }
   
-
   componentDidMount() {
+    window.onresize = () => {
+      var cnvHeight = window.innerHeight - 50;
+      const cnv = document.getElementById('driver');
+      cnv.style.width = `${window.innerWidth}px`;
+      cnv.style.height = `${cnvHeight}px`;
+    };
+    window.onresize();
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
@@ -45,7 +51,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   moveHazards: () => dispatch({type: 'MOVE_HAZARDS'}),
-
   startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),

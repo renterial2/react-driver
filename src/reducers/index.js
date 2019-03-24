@@ -2,21 +2,20 @@ import moveHazards from './moveHazards'
 
 const initialGameState = {
     started: false,
-    lives: 3,
     hazards: [],
     lastHazardCreatedAt: new Date(),
 }
 
 const initialState = {
     speedX: 0,
-    x: 0,
+    x: -25,
+    y: 0,
     gamestate: initialGameState,
 }
 
 function reducer(state = initialState, action) {
 
     switch (action.type) {
-
         case 'MOVE_HAZARDS': 
             return moveHazards(state)
         case 'START_GAME': 
