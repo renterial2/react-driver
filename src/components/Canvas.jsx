@@ -6,7 +6,7 @@ import Hazard from './Hazard'
 import Vehicle from './Vehicle'
 
 const Canvas = (props) => {
-    // console.log(props)
+    
     const gameHeight = gameWidth
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
 
@@ -25,17 +25,11 @@ const Canvas = (props) => {
             
             { props.gamestate.hazards.map(hazard => ( <Hazard key={hazard.id} position={hazard.position} /> )) }
 
-            {/* { props.gamestate.vehiclePositions.map(vehiclePosition => (
-                <Vehicle key={vehiclePosition.id} position={vehiclePosition.position}/>
-            ))} */}
-
             <Vehicle />
-
-            
 
             { props.gamestate.started &&
                 <g>
-                    <CurrentScore score={0} />
+                    <CurrentScore score={props.gamestate.score} />
                 </g>
             }
 

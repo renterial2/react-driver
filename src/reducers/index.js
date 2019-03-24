@@ -4,6 +4,7 @@ const initialGameState = {
     started: false,
     hazards: [],
     lastHazardCreatedAt: new Date(),
+    score: 0,
 }
 
 const initialState = {

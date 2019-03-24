@@ -13,18 +13,20 @@ function moveHazards(state, action) {
   let vehicleY = state.y
 
   const objectsCollected = checkCollisions(vehicleX, vehicleY, hazards)
-  // const vehiclePositionsCollected = objectsCollected.map(object => (object.vehicleId))
-  // const hazardsCollected = objectsCollected.map(object => (object.hazardId))
 
-  // // vehiclePositions = vehiclePositions.filter(vehicle => (vehiclePositionsCollected.indexOf(vehicle.id)))
-  // hazards = hazards.filter(hazard => (hazardsCollected.indexOf(hazard.id)))
+  const hazardsCollected = objectsCollected.map(object => (object.hazardId))
 
+  hazards = hazards.filter(hazard => (hazardsCollected.indexOf(hazard.id)))
+
+  const score = state.gamestate.score + hazardsCollected.length
+  // console.log(score)
 
   return {
       ...newState,
       gamestate: {
         ...newState.gamestate,
         hazards,
+        score,
       }
     }
 }
