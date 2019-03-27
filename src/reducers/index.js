@@ -5,6 +5,8 @@ const initialGameState = {
     hazards: [],
     lastHazardCreatedAt: new Date(),
     score: 0,
+    currentPlayer: null,
+    players: null,
 }
 
 const initialState = {
@@ -17,8 +19,27 @@ const initialState = {
 function reducer(state = initialState, action) {
 
     switch (action.type) {
-        case 'MOVE_HAZARDS': 
-            return moveHazards(state)
+        case 'MOVE_VEHICLERIGHT':
+            return {
+                ...state,
+                speedX: state.speedX + 1,
+                x: state.x + state.speedX
+            }
+
+        case 'MOVE_VEHICLELEFT':
+            return {
+                ...state,
+                speedX: state.speedX - 1,
+                x: state.x + state.speedX
+            }
+
+        case 'RATE':
+            return {
+                ...state,
+                x: state.speedX + state.x,
+                speedX: state.speedX
+            }
+
         case 'START_GAME': 
             return {
                 ...state,
@@ -27,24 +48,28 @@ function reducer(state = initialState, action) {
                     started: true,
                 }
             }
-        case 'MOVE_VEHICLERIGHT':
+
+        case 'MOVE_HAZARDS': 
+            return moveHazards(state)
+
+        case 'LEADERBOARD_LOADED':
             return {
-                ...state,
-                speedX: state.speedX + 1,
-                x: state.x + state.speedX
+              ...state,
+              gamestate: {
+                ...state.gamestate,
+                players: action.players,
+              }
             }
-        case 'MOVE_VEHICLELEFT':
+
+        case 'LOGGED_IN':
             return {
-                ...state,
-                speedX: state.speedX - 1,
-                x: state.x + state.speedX
+              ...state,
+              gamestate: {
+                ...initialGameState,
+                currentPlayer: action.player,
+              }
             }
-        case 'RATE':
-            return {
-                ...state,
-                x: state.speedX + state.x,
-                speedX: state.speedX
-            }
+            
         default:
             return state
     }

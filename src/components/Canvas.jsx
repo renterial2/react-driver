@@ -4,9 +4,11 @@ import StartGame from './StartGame'
 import CurrentScore from './CurrentScore'
 import Hazard from './Hazard'
 import Vehicle from './Vehicle'
+import { signIn } from 'auth0-web'
+import Leaderboard from './Leaderboard'
 
 const Canvas = (props) => {
-    
+    // const auth = new Auth()
     const gameHeight = gameWidth
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
 
@@ -20,6 +22,7 @@ const Canvas = (props) => {
             { ! props.gamestate.started &&
                 <g>
                     <StartGame onClick={() => props.startGame()} />
+                    <Leaderboard currentPlayer={props.gamestate.currentPlayer} authenticate={signIn} leaderboard={props.gamestate.players} />
                 </g>
             }
             
