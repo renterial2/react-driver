@@ -11,9 +11,6 @@ const checkCollisions = (vehicleX, vehicleY, hazards) => {
             x: hazard.position.x,
             y: hazard.position.y + ((currentLifeTime / 4000) * gameHeight),
         }
-        // todo: move this into constants
-        const hazardWidth = 50
-        const hazardHeight = 70
 
         const hazardRect = {
             x1: calculatedHazardPosition.x,
