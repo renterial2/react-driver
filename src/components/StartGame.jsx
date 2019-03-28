@@ -2,6 +2,7 @@ import React from 'react'
 
 const StartGame = (props) => {
     const text = {
+        class: "flashit",
         textAnchor: 'middle', // centered
         y: -50,
         style: {
@@ -11,14 +12,14 @@ const StartGame = (props) => {
             cursor: 'pointer',
         },
         onClick: props.onClick,
-    };
+    }
     return (
         <g>
-            <text class="flashit" {...text}>
-                Click to Start!
+            <text {...text}>
+                Click to Play!
             </text>
         </g>
     )
-};
+}
 
 export default StartGame

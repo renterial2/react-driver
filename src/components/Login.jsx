@@ -15,6 +15,7 @@ const Login = (props) => {
     }
 
     const text = {
+        class: "flashit",
         textAnchor: 'middle', // center
         x: 0, // center relative to X axsis
         y: -400, // 440 up
@@ -29,8 +30,8 @@ const Login = (props) => {
     return (
         <g>
             <rect {...button} />
-            <text class="flashit" {...text}>
-                Click to Login to Leadboard
+            <text {...text}>
+                Click to Login
             </text>
         </g>
     )

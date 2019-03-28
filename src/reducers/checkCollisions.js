@@ -24,7 +24,6 @@ const checkCollisions = (vehicleX, vehicleY, hazards) => {
             y: vehicleY,
         }
 
-        // todo: move this into constants
         const vehicleWidth = 50
         const vehicleHeight = 70
 
