@@ -5,17 +5,17 @@ const StartGame = (props) => {
         textAnchor: 'middle', // centered
         y: -50,
         style: {
-            fontFamily: '"Joti One", cursive',
+            fontFamily: '"Press Start 2P", cursive',
             fontSize: 60,
-            fill: 'grey',
+            fill: 'yellow',
             cursor: 'pointer',
         },
         onClick: props.onClick,
     };
     return (
         <g>
-            <text {...text}>
-                Tap to Start!
+            <text class="flashit" {...text}>
+                Click to Start!
             </text>
         </g>
     )

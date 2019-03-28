@@ -5,7 +5,7 @@ const CurrentScore = (props) => {
         textAnchor: 'middle', // centered
         y: -700,
         style: {
-            fontFamily:  '"Joti One", cursive',
+            fontFamily:  '"Press Start 2P", cursive',
             fontSize: 30,
             fill: 'blue'
         }

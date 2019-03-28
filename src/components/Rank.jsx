@@ -6,9 +6,9 @@ const Rank = (props) => {
   const rectId = 'rect' + props.player.rank
 
   const textStyle = {
-    fontFamily: '"Joti One", cursive',
+    fontFamily: '"Press Start 2P", cursive',
     fontSize: 35,
-    fill: '#e3e3e3',
+    fill: 'darkgrey',
     cursor: 'default',
   }
 
@@ -19,9 +19,9 @@ const Rank = (props) => {
       <defs>
         <rect id={rectId} />
       </defs>
-      <text style={textStyle} x={x - 200} y={y}>{props.player.rank}º</text>
-      <text style={textStyle} x={x - 60} y={y}>{props.player.name}</text>
-      <text style={textStyle} x={x + 350} y={y}>{props.player.maxScore}</text>
+      <text style={textStyle} x={x - 675} y={y}>{props.player.rank}</text>
+      <text style={textStyle} x={x - 600} y={y}>{props.player.name}</text>
+      <text style={textStyle} x={x + 800} y={y}>{props.player.maxScore}</text>
     </g>
   )
 }

@@ -17,8 +17,6 @@ const players = [
   { id: 'd4', maxScore: 14, name: 'Sebastián Peyrott' },
 ]
 
-// console.log(players)
-
 const verifyPlayer = (token, cb) => {
   const uncheckedToken = jwt.decode(token, {complete: true})
   const kid = uncheckedToken.header.kid
@@ -36,7 +34,6 @@ const newMaxScoreHandler = (payload) => {
     if (player.id === payload.id) {
       foundPlayer = true;
       player.maxScore = Math.max(player.maxScore, payload.maxScore)
-      console.log(player)
     }
   })
 
@@ -51,7 +48,6 @@ io.on('connection', (socket) => {
   const { token } = socket.handshake.query;
 
   verifyPlayer(token, (err) => {
-    // console.log(token)
     if (err) socket.disconnect()
     io.emit('players', players)
   })

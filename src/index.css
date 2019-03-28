@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Joti+One');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 body {
   margin: 0;
@@ -8,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 html, body {
@@ -36,4 +37,20 @@ code {
   /* position:relative; */
   /* top:50%;  */
   /* left:50%; */
+}
+
+.flashit {
+  fill: rgb(55, 184, 44);
+	-webkit-animation: flash linear 1s infinite;
+	animation: flash linear 1s infinite;
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
 }
