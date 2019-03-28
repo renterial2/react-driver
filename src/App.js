@@ -23,10 +23,11 @@ class App extends Component {
   }
   
   componentDidMount() {
-
+    
     Auth0.handleAuthCallback()
     Auth0.subscribe((auth) => {
-      console.log(auth)
+
+      // console.log(auth)
       if (!auth) return
 
       const playerProfile = Auth0.getProfile()
@@ -35,8 +36,6 @@ class App extends Component {
         maxScore: 0,
         name: playerProfile.name,
       }
-      // console.log(currentPlayer)
-      // console.log(this.props.loggedIn(currentPlayer))
     
       this.props.loggedIn(currentPlayer)
 
@@ -47,7 +46,6 @@ class App extends Component {
     let emitted = false
     socket.on('players', (players) => {
       
-      // console.log("Hello", this.props.leaderboardLoaded(players))
       this.props.leaderboardLoaded(players)
       
       if (emitted) return

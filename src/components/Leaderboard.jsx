@@ -1,6 +1,8 @@
 import React from 'react'
 import Login from './Login'
-import Rank from "./Rank"
+import Rank from './Rank'
+import { connect } from 'react-redux'
+import StartGame from './StartGame'
 
 const Leaderboard = (props) => {
 
@@ -11,8 +13,7 @@ const Leaderboard = (props) => {
     cursor: 'default',
   }
 
-  let leaderboard = props.leaderboard || [];
-  console.log(leaderboard)
+  let leaderboard = props.leaderboard || []
   leaderboard = leaderboard.sort((prev, next) => {
     if (prev.maxScore === next.maxScore) {
       return prev.name <= next.name ? 1 : -1
@@ -31,7 +32,7 @@ const Leaderboard = (props) => {
     <g>
       {
         props.currentPlayer &&
-        <text style={leaderboardTitle} y="-630" textAnchor="middle">Leaderboard</text>
+        <text class="flashit" style={leaderboardTitle} y="-630" textAnchor="middle" >Leaderboard</text>
       }
       
       {
@@ -44,10 +45,21 @@ const Leaderboard = (props) => {
         })
       }
       {
-        ! props.currentPlayer && <Login authenticate={props.authenticate} />
+        ! props.currentPlayer && 
+        <g>
+          <Login authenticate={props.authenticate} />
+        </g>
+      }
+      {
+        props.currentPlayer && 
+        <StartGame onClick={() => props.startGame()} />
       }
     </g>
   )
 }
 
-export default Leaderboard
+const mapDispatchToProps = dispatch => ({
+  startGame: () => dispatch({type: 'START_GAME'}),
+})
+
+export default connect(null, mapDispatchToProps)(Leaderboard)
