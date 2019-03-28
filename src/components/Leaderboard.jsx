@@ -3,16 +3,11 @@ import Login from './Login'
 import Rank from "./Rank"
 
 const Leaderboard = (props) => {
-  const style = {
-    fill: 'transparent',
-    stroke: 'black',
-    strokeDasharray: '15',
-  }
 
   const leaderboardTitle = {
-    fontFamily: '"Joti One", cursive',
+    fontFamily: '"Press Start 2P", cursive',
     fontSize: 50,
-    fill: '#88da85',
+    fill: 'green',
     cursor: 'default',
   }
 
@@ -34,8 +29,11 @@ const Leaderboard = (props) => {
 
   return (
     <g>
-      <text style={leaderboardTitle} x="-150" y="-630">Leaderboard</text>
-      <rect style={style} x="-350" y="-600" width="700" height="330" />
+      {
+        props.currentPlayer &&
+        <text style={leaderboardTitle} y="-630" textAnchor="middle">Leaderboard</text>
+      }
+      
       {
         props.currentPlayer && leaderboard.map((player, idx) => {
           const position = {

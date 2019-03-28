@@ -19,9 +19,8 @@ const Login = (props) => {
         x: 0, // center relative to X axsis
         y: -400, // 440 up
         style: {
-            fontFamily: '"Joti One", cursive',
+            fontFamily: '"Press Start 2P", cursive',
             fontSize: 45,
-            fill: 'grey',
             cursor: 'pointer',
         },
         onClick: props.authenticate,
@@ -30,8 +29,8 @@ const Login = (props) => {
     return (
         <g>
             <rect {...button} />
-            <text {...text}>
-                Login to Leadboard
+            <text class="flashit" {...text}>
+                Click to Login to Leadboard
             </text>
         </g>
     )

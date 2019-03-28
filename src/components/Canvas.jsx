@@ -10,7 +10,7 @@ import Leaderboard from './Leaderboard'
 const Canvas = (props) => {
     // const auth = new Auth()
     const gameHeight = gameWidth
-    const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
+    const viewBox = [window.innerWidth / - 2, 100 - gameHeight, window.innerWidth, gameHeight]
 
     return (
         <svg
