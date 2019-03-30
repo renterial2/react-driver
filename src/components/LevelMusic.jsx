@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Sound from 'react-sound'
 import soundfile from '../sfx/background.mp3'
+import 'react-sound'
+soundManager.setup({debugMode: false})
 
 class LevelMusic extends Component {
 
