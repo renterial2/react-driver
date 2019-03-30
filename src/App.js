@@ -5,7 +5,6 @@ import RightButton from './components/RightButton'
 import LeftButton from './components/LeftButton'
 import * as Auth0 from 'auth0-web'
 import io from 'socket.io-client'
-import 'react-sound'
 
 Auth0.configure({
   domain: 'renterial.auth0.com',
@@ -26,8 +25,6 @@ class App extends Component {
   }
   
   componentDidMount() {
-    soundManager.setup({debugMode: false})
-
     const self = this
 
     Auth0.handleAuthCallback()
