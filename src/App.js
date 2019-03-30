@@ -42,7 +42,7 @@ class App extends Component {
     
       this.props.loggedIn(self.currentPlayer)
 
-      self.socket = io('http://localhost:8000', {
+      self.socket = io('http://localhost:32299', {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
