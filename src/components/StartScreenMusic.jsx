@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import Sound, { soundManager } from 'react-sound'
+import Sound from 'react-sound'
 import soundfile from '../sfx/startScreen.mp3'
-import 'react-sound'
-soundManager.setup({debugMode: false})
 
 class StartScreenMusic extends Component {
 
