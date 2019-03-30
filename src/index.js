@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import './index.css';
+import './index.css'
 import App from './App'
 import reducer from './reducers'
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker'
+/* global soundManager:false */
+import 'react-sound'
+soundManager.setup({debugMode: false})
 
 
 /* eslint-disable no-underscore-dangle */
