@@ -29,7 +29,7 @@ class App extends Component {
 
     Auth0.handleAuthCallback()
     Auth0.subscribe((auth) => {
-      // console.log(auth)
+      console.log(auth)
       if (!auth) return
 
       self.playerProfile = Auth0.getProfile()
