@@ -20,53 +20,41 @@ class App extends Component {
     super(props)
     this.moveLeft = this.moveLeft.bind(this)
     this.moveRight = this.moveRight.bind(this)
+    this.socket = null
+    this.currentPlayer = null
   }
   
   componentDidMount() {
-    
+    const self = this
+
     Auth0.handleAuthCallback()
     Auth0.subscribe((auth) => {
-
       // console.log(auth)
       if (!auth) return
 
-      const playerProfile = Auth0.getProfile()
-      const currentPlayer = {
-        id: playerProfile.sub,
+      self.playerProfile = Auth0.getProfile()
+      self.currentPlayer = {
+        id: self.playerProfile.sub,
         maxScore: 0,
-        name: playerProfile.name,
-      }
+        name: self.playerProfile.name,
+        picture: self.playerProfile.picture,
+      };
     
-      this.props.loggedIn(currentPlayer)
+      this.props.loggedIn(self.currentPlayer)
 
-      const socket = io('http://localhost:3001', {
+      self.socket = io('http://localhost:3001', {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
-    let emitted = false
-    socket.on('players', (players) => {
-      
-      this.props.leaderboardLoaded(players)
-      
-      if (emitted) return
-
-      socket.emit('new-max-score', {
-        id: playerProfile.sub,
-        maxScore: 120,
-        name: playerProfile.name,
+    self.socket.on('players', (players) => {
+      this.props.leaderboardLoaded(players);
+      players.forEach((player) => {
+        if (player.id === self.currentPlayer.id) {
+          self.currentPlayer.maxScore = player.maxScore;
+        }
       })
-
-      emitted = true
-      
-      setTimeout(() => {
-        socket.emit('new-max-score', {
-          id: playerProfile.sub,
-          maxScore: 222,
-          name: playerProfile.name
-        })
-    }, 5000)
+    })
   })
-})
 
     window.onresize = () => {
       var cnvHeight = window.innerHeight - 50
@@ -81,6 +69,23 @@ class App extends Component {
       this.props.moveHazards()
     }, 10)
   }
+  
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.gamestate.started && this.props.gamestate.started) {
+      if (this.currentPlayer.maxScore < this.props.gamestate.score) {
+        this.socket.emit('new-max-score', {
+          ...this.currentPlayer,
+          maxScore: this.props.gamestate.score,
+        })
+      }
+    }
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.score !== this.props.score) {
+  //     console.log('JUST SCORED')
+  //   }
+  // }
 
   moveLeft (event) {
     this.props.moveLeft(event)
@@ -119,6 +124,7 @@ const mapDispatchToProps = dispatch => ({
   rate: () => dispatch({type: "RATE"}),
   leaderboardLoaded: (players) => dispatch({type: "LEADERBOARD_LOADED", players}),
   loggedIn: (player) => dispatch({type: "LOGGED_IN", player}),
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

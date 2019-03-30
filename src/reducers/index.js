@@ -7,6 +7,7 @@ const initialGameState = {
     score: 0,
     currentPlayer: null,
     players: null,
+    justScored: false,
 }
 
 const initialState = {

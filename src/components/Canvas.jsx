@@ -1,6 +1,5 @@
 import React from 'react'
 import { gameWidth } from '../utils/constants'
-// import StartGame from './StartGame'
 import CurrentScore from './CurrentScore'
 import Hazard from './Hazard'
 import Vehicle from './Vehicle'
@@ -8,6 +7,7 @@ import { signIn } from 'auth0-web'
 import Leaderboard from './Leaderboard'
 import StartScreenMusic from './StartScreenMusic'
 import LevelMusic from './LevelMusic'
+// import CoinSound from './CoinSound'
 
 const Canvas = (props) => {
     const gameHeight = gameWidth
@@ -19,12 +19,10 @@ const Canvas = (props) => {
             // perserveAspectRatio="xMaxYMax none"
             viewBox={viewBox}
         >
-
             { ! props.gamestate.started &&
                 <g>
                     <StartScreenMusic />
                     <Leaderboard currentPlayer={props.gamestate.currentPlayer} authenticate={signIn} leaderboard={props.gamestate.players} />
-                    {/* <StartGame onClick={() => props.startGame()} /> */}
                 </g>
             }
             
@@ -38,8 +36,11 @@ const Canvas = (props) => {
                     <CurrentScore score={props.gamestate.score} />
                 </g>
             }
-
-
+            {/* { props.gamestate.justScored && 
+                <g>
+                    <CoinSound play={props.gamestate.justScored}/>
+                </g>
+            } */}
         </svg>
     )
 }

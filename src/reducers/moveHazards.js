@@ -1,5 +1,6 @@
 import createHazards from './createHazards'
 import checkCollisions from './checkCollisions'
+// import { playCoinSound } from '../utils/PlayCoinSound'
 
 function moveHazards(state, action) {
   if (!state.gamestate.started) return state
@@ -19,7 +20,10 @@ function moveHazards(state, action) {
   hazards = hazards.filter(hazard => (hazardsCollected.indexOf(hazard.id)))
 
   const score = state.gamestate.score + hazardsCollected.length
-  // console.log(score)
+
+  // if (hazardsCollected.length > 0) {
+  //   playCoinSound()
+  // }
 
   return {
       ...newState,
@@ -27,6 +31,7 @@ function moveHazards(state, action) {
         ...newState.gamestate,
         hazards,
         score,
+        justScored: (hazardsCollected.length > 0),
       }
     }
 }

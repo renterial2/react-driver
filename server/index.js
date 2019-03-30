@@ -8,14 +8,7 @@ const client = jwksClient({
   jwksUri: 'https://renterial.auth0.com/.well-known/jwks.json'
 })
 
-const players = [
-  { id: 'a1', maxScore: 23, name: 'Bruno Krebs' },
-  { id: 'c3', maxScore: 9, name: 'Diego Poza' },
-  { id: 'b2', maxScore: 12, name: 'Jeana Tahnk' },
-  { id: 'f6', maxScore: 15, name: 'Kim Maida' },
-  { id: 'e5', maxScore: 5, name: 'Luke Oliff' },
-  { id: 'd4', maxScore: 14, name: 'Sebastián Peyrott' },
-]
+const players = []
 
 const verifyPlayer = (token, cb) => {
   const uncheckedToken = jwt.decode(token, {complete: true})
