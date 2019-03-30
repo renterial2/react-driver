@@ -32,7 +32,7 @@ const Leaderboard = (props) => {
     <g>
       {
         props.currentPlayer &&
-        <text class="flashit" style={leaderboardTitle} y="-630" textAnchor="middle" >Leaderboard</text>
+        <text className="flashit" style={leaderboardTitle} y="-630" textAnchor="middle" >Leaderboard</text>
       }
       
       {
