@@ -12,7 +12,7 @@ Auth0.configure({
   redirectUri: 'https://coin-collector-renteria.herokuapp.com/',
   responseType: 'token id_token',
   scope: 'openid profile manage:points',
-  audience: 'https://coin-collector-server.herokuapp.com/',
+  audience: 'https://coin-collector-renteria.herokuapp.com/',
 })
 
 class App extends Component {
