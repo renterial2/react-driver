@@ -9,10 +9,10 @@ import io from 'socket.io-client'
 Auth0.configure({
   domain: 'renterial.auth0.com',
   clientID: 'dXV5rHU2lqnDQ6UwxU2Vq8HZ3qJ0Y0uJ',
-  redirectUri: 'https://coin-collector-server.herokuapp.com/',
+  redirectUri: 'https://coin-collector-renteria.herokuapp.com/',
   responseType: 'token id_token',
   scope: 'openid profile manage:points',
-  audience: 'https://coin-collector-renteria.herokuapp.com/',
+  audience: 'https://coin-collector-server.herokuapp.com/',
 })
 
 class App extends Component {
@@ -37,12 +37,11 @@ class App extends Component {
         id: self.playerProfile.sub,
         maxScore: 0,
         name: self.playerProfile.name,
-        picture: self.playerProfile.picture,
-      };
+      }
     
       this.props.loggedIn(self.currentPlayer)
 
-      self.socket = io('http://localhost:32299', {
+      self.socket = io('https://coin-collector-renteria.herokuapp.com/', {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
