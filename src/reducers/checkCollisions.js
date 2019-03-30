@@ -33,17 +33,16 @@ const checkCollisions = (vehicleX, vehicleY, hazards) => {
             x2: calculatedVehiclePosition.x + vehicleWidth,
             y2: calculatedVehiclePosition.y + vehicleHeight
         }
-        // console.log("vehicleRect coordinates are ", vehicleRect)
 
         if (checkCollision(hazardRect, vehicleRect)) {
-            // console.log("COLLISION at hazard", hazard.id, ":", hazardRect, "and vehicle:", vehicleRect)
             objectsCollected.push({
                 hazardId: hazard.id
             })
         }
     })
-    // console.log(objectsCollected.length)
+
     return objectsCollected
+
 }
 
-export default checkCollisions 
+export default checkCollisions
