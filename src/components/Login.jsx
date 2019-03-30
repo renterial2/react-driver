@@ -15,7 +15,7 @@ const Login = (props) => {
     }
 
     const text = {
-        class: "flashit",
+        className: "flashit",
         textAnchor: 'middle', // center
         x: 0, // center relative to X axsis
         y: -400, // 440 up
