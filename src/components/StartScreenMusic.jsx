@@ -13,6 +13,7 @@ class StartScreenMusic extends Component {
                 onPlaying={this.handleSongPlaying}
                 onFinishedPlaying={this.handleSongFinishedPlaying}
                 loop={true}
+                debugMode={false}
             />
   }
 }
