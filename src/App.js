@@ -12,7 +12,7 @@ Auth0.configure({
   redirectUri: 'https://coin-collector-server.herokuapp.com/',
   responseType: 'token id_token',
   scope: 'openid profile manage:points',
-  audience: 'https://coin-collector-renteria.herokuapp.com/',
+  audience: 'https://coin-collector-server.herokuapp.com/',
 })
 
 class App extends Component {
@@ -37,12 +37,11 @@ class App extends Component {
         id: self.playerProfile.sub,
         maxScore: 0,
         name: self.playerProfile.name,
-        picture: self.playerProfile.picture,
-      };
+      }
     
       this.props.loggedIn(self.currentPlayer)
 
-      self.socket = io('http://localhost:32299', {
+      self.socket = io('https://coin-collector-renteria.herokuapp.com/', {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
