@@ -2,7 +2,7 @@ import React from 'react'
 
 const StartGame = (props) => {
     const text = {
-        class: "flashit",
+        className: "flashit",
         textAnchor: 'middle', // centered
         y: -50,
         style: {
