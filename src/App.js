@@ -41,7 +41,7 @@ class App extends Component {
     
       this.props.loggedIn(self.currentPlayer)
 
-      self.socket = io('https://coin-collector-renteria.herokuapp.com/', {
+      self.socket = io('https://coin-collector-server.herokuapp.com/', {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
