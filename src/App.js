@@ -9,7 +9,7 @@ import io from 'socket.io-client'
 Auth0.configure({
   domain: 'renterial.auth0.com',
   clientID: 'dXV5rHU2lqnDQ6UwxU2Vq8HZ3qJ0Y0uJ',
-  redirectUri: 'https://coin-collector-server.herokuapp.com/',
+  redirectUri: 'https://coin-collector-renteria.herokuapp.com/',
   responseType: 'token id_token',
   scope: 'openid profile manage:points',
   audience: 'https://coin-collector-server.herokuapp.com/',
