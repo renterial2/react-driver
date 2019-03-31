@@ -63,18 +63,14 @@ class App extends Component {
     }
     window.onresize()
 
-
-    setInterval(() => {
-      this.props.countdown()
-    }, 1000)
-
-    
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
     }, 10)
 
-   
+    setInterval(() => {
+      this.props.countdown()
+    }, 1000)
 
   }
   
