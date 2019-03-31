@@ -68,9 +68,21 @@ class App extends Component {
       this.props.moveHazards()
     }, 10)
 
-    setInterval(() => {
-      this.props.countdown()
-    }, 1000)
+
+    // TODO: decrement the timer from 60 to zero
+    // setInterval(() => {
+    //   this.props.countdown()
+    // }, 1000)
+    var i
+    for (i = 0; i < 60; i++) {
+      function myFunction () {
+        this.props.countdown()
+      }
+      setTimeout(myFunction, 1000)
+    }
+
+
+
 
   }
   
@@ -85,6 +97,7 @@ class App extends Component {
     }
   }
 
+  // TODO: play coin sound
   // componentDidUpdate(prevProps) {
   //   if (prevProps.score !== this.props.score) {
   //     console.log('JUST SCORED')
@@ -128,7 +141,7 @@ const mapDispatchToProps = dispatch => ({
   rate: () => dispatch({type: 'RATE'}),
   leaderboardLoaded: (players) => dispatch({type: 'LEADERBOARD_LOADED', players}),
   loggedIn: (player) => dispatch({type: 'LOGGED_IN', player}),
-  countdown: () => dispatch({type: 'COUNTDOWN'}),
+  // countdown: () => dispatch({type: 'COUNTDOWN'}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
