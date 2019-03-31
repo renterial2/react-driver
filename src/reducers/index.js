@@ -1,4 +1,5 @@
 import moveHazards from './moveHazards'
+import countdown from './countdown';
 
 const initialGameState = {
     started: false,
@@ -50,6 +51,9 @@ function reducer(state = initialState, action) {
                     started: true,
                 }
             }
+
+        case 'COUNTDOWN':
+            return countdown(state)
 
         case 'MOVE_HAZARDS': 
             return moveHazards(state)

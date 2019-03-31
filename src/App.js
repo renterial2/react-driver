@@ -67,6 +67,11 @@ class App extends Component {
       this.props.rate()
       this.props.moveHazards()
     }, 10)
+
+    setInterval(() => {
+      this.props.countdown()
+    }, 1000)
+
   }
   
   componentWillReceiveProps(nextProps) {
@@ -123,7 +128,7 @@ const mapDispatchToProps = dispatch => ({
   rate: () => dispatch({type: "RATE"}),
   leaderboardLoaded: (players) => dispatch({type: "LEADERBOARD_LOADED", players}),
   loggedIn: (player) => dispatch({type: "LOGGED_IN", player}),
-
+  countdown: () => dispatch({type: 'COUNTDOWN'}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -13,7 +13,7 @@ const Timer = (props) => {
     return (
         <g>
             <text {...text}>
-                {props.time}
+                Time:{props.time}
             </text>
         </g>
     )

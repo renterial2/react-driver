@@ -13,7 +13,7 @@ const CurrentScore = (props) => {
     return (
         <g>
             <text {...text}>
-                Score: {props.score}
+                Score:{props.score}
             </text>
         </g>
     )
