@@ -20,7 +20,6 @@ const initialState = {
 }
 
 function reducer(state = initialState, action) {
-
     switch (action.type) {
         case 'MOVE_VEHICLERIGHT':
             return {
@@ -28,21 +27,18 @@ function reducer(state = initialState, action) {
                 speedX: state.speedX + 1,
                 x: state.x + state.speedX
             }
-
         case 'MOVE_VEHICLELEFT':
             return {
                 ...state,
                 speedX: state.speedX - 1,
                 x: state.x + state.speedX
             }
-
         case 'RATE':
             return {
                 ...state,
                 x: state.speedX + state.x,
                 speedX: state.speedX
             }
-
         case 'START_GAME': 
             return {
                 ...state,
@@ -52,11 +48,21 @@ function reducer(state = initialState, action) {
                 }
             }
 
+
+
+
         case 'COUNTDOWN':
             return countdown(state)
 
+
+
+
+
         case 'MOVE_HAZARDS': 
             return moveHazards(state)
+
+
+
 
         case 'LEADERBOARD_LOADED':
             return {
@@ -66,7 +72,6 @@ function reducer(state = initialState, action) {
                 players: action.players,
               }
             }
-
         case 'LOGGED_IN':
             return {
               ...state,
@@ -75,7 +80,6 @@ function reducer(state = initialState, action) {
                 currentPlayer: action.player,
               }
             }
-            
         default:
             return state
     }

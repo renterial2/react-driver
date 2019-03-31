@@ -21,6 +21,7 @@ function moveHazards(state, action) {
 
   const score = state.gamestate.score + hazardsCollected.length
 
+  // TODO: play coin sound
   // if (hazardsCollected.length > 0) {
   //   playCoinSound()
   // }
