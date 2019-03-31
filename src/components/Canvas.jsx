@@ -7,7 +7,8 @@ import { signIn } from 'auth0-web'
 import Leaderboard from './Leaderboard'
 import StartScreenMusic from './StartScreenMusic'
 import LevelMusic from './LevelMusic'
-import Clock from './Clock'
+import Timer from './Timer'
+// import Clock from './Clock'
 // import CoinSound from './CoinSound'
 
 const Canvas = (props) => {
@@ -33,7 +34,8 @@ const Canvas = (props) => {
 
             { props.gamestate.started &&
                 <g>
-                    <Clock />
+                    {/* <Clock /> */}
+                    <Timer time={props.gamestate.time}/>
                     <CurrentScore score={props.gamestate.score} />
                     <LevelMusic />
                 </g>
