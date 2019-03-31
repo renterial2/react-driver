@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Countdown from 'react-countdown-now'
 
 class Clock extends Component {
