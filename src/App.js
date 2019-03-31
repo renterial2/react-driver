@@ -75,14 +75,16 @@ class App extends Component {
     // setInterval(() => {
     //   this.props.countdown()
     // }, 1000)
+    function myFunction () {
+      this.props.countdown()
+    }
+
     var i
     for (i = 0; i < 60; i++) {
-      function myFunction () {
-        this.props.countdown()
-      }
       setTimeout(myFunction, 1000)
     }
 
+    
 
 
 
