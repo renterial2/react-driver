@@ -63,14 +63,18 @@ class App extends Component {
     }
     window.onresize()
 
+
+    setInterval(() => {
+      this.props.countdown()
+    }, 1000)
+
+    
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
     }, 10)
 
-    setInterval(() => {
-      this.props.countdown()
-    }, 1000)
+   
 
   }
   
@@ -125,9 +129,9 @@ const mapDispatchToProps = dispatch => ({
   startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),
-  rate: () => dispatch({type: "RATE"}),
-  leaderboardLoaded: (players) => dispatch({type: "LEADERBOARD_LOADED", players}),
-  loggedIn: (player) => dispatch({type: "LOGGED_IN", player}),
+  rate: () => dispatch({type: 'RATE'}),
+  leaderboardLoaded: (players) => dispatch({type: 'LEADERBOARD_LOADED', players}),
+  loggedIn: (player) => dispatch({type: 'LOGGED_IN', player}),
   countdown: () => dispatch({type: 'COUNTDOWN'}),
 })
 
