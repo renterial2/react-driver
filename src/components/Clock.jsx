@@ -1,7 +1,7 @@
 import React from 'react'
 import Countdown from 'react-countdown-now'
 
-const Countdown = (props) => {
+const Clock = (props) => {
     const text = {
         textAnchor: 'middle', // centered
         y: -800,
@@ -19,4 +19,4 @@ const Countdown = (props) => {
     )
 }
 
-export default Countdown
+export default Clock
