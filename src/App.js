@@ -69,8 +69,6 @@ class App extends Component {
     }, 10)
 
 
-
-
     // TODO: decrement the timer from 60 to zero
     // setInterval(() => {
     //   this.props.countdown()
@@ -78,16 +76,13 @@ class App extends Component {
     
   
 
-    var i
-    for (i = 0; i < 60; i++) {
-      function myFunction() {
-        this.props.countdown()
-      }
-      setTimeout(myFunction, 1000)
-    }
+    // var i
+    // for (i = 0; i < 60; i++) {
+    //   setTimeout((this.props.countdown()), 1000)
+    // }
 
 
-
+    setTimeout((this.props.countdown()), 5000)
 
 
   }
