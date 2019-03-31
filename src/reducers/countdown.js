@@ -1,3 +1,9 @@
+import { connect } from 'react-redux'
+
+setInterval(() => {
+    this.props.countdown()
+  }, 1000)
+
 function countdown (state, action) {
     if (!state.gamestate.started) return state
     let gametime = state.gamestate.time
@@ -12,4 +18,8 @@ function countdown (state, action) {
     }
 }
 
-export default countdown
+const mapDispatchToProps = dispatch => ({
+    countdown: () => dispatch({type: 'COUNTDOWN'}),
+})
+
+export default connect(null, mapDispatchToProps)(countdown)
