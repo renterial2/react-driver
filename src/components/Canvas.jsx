@@ -7,6 +7,7 @@ import { signIn } from 'auth0-web'
 import Leaderboard from './Leaderboard'
 import StartScreenMusic from './StartScreenMusic'
 import LevelMusic from './LevelMusic'
+import Countdown from './Countdown'
 // import CoinSound from './CoinSound'
 
 const Canvas = (props) => {
@@ -32,8 +33,9 @@ const Canvas = (props) => {
 
             { props.gamestate.started &&
                 <g>
-                    <LevelMusic />
+                    <Countdown />
                     <CurrentScore score={props.gamestate.score} />
+                    <LevelMusic />
                 </g>
             }
             {/* { props.gamestate.justScored && 
