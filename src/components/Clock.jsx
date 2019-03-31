@@ -2,20 +2,13 @@ import React from 'react'
 import Countdown from 'react-countdown-now'
 
 const Clock = (props) => {
-    const text = {
-        textAnchor: 'middle', // centered
-        y: -800,
-        style: {
+        const style = {
             fontFamily:  '"Press Start 2P", cursive',
             fontSize: 30,
             fill: 'white'
         }
-    }
-
     return (
-        <text {...text}>
-            <Countdown date={Date.now() + 60000}/>
-        </text>
+            <Countdown style={...style} date={Date.now() + 60000}/>
     )
 }
 
