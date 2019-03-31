@@ -69,6 +69,8 @@ class App extends Component {
     }, 10)
 
 
+
+
     // TODO: decrement the timer from 60 to zero
     // setInterval(() => {
     //   this.props.countdown()
@@ -141,7 +143,7 @@ const mapDispatchToProps = dispatch => ({
   rate: () => dispatch({type: 'RATE'}),
   leaderboardLoaded: (players) => dispatch({type: 'LEADERBOARD_LOADED', players}),
   loggedIn: (player) => dispatch({type: 'LOGGED_IN', player}),
-  // countdown: () => dispatch({type: 'COUNTDOWN'}),
+  countdown: () => dispatch({type: 'COUNTDOWN'}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
