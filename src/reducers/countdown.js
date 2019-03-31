@@ -1,6 +1,6 @@
 function countdown (state, action) {
     if (!state.gamestate.started) return state
-    let gametime = gamestate.time
+    let gametime = state.gamestate.time
     const time = gametime - 1
 
     return {
