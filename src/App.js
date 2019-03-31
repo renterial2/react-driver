@@ -75,13 +75,14 @@ class App extends Component {
     // setInterval(() => {
     //   this.props.countdown()
     // }, 1000)
-
-    myFunction (() => {
-      this.props.countdown()
-    })
+    
+  
 
     var i
     for (i = 0; i < 60; i++) {
+      function myFunction() {
+        this.props.countdown()
+      }
       setTimeout(myFunction, 1000)
     }
 
@@ -90,7 +91,7 @@ class App extends Component {
 
 
   }
-  
+
   componentWillReceiveProps(nextProps) {
     if (!nextProps.gamestate.started && this.props.gamestate.started) {
       if (this.currentPlayer.maxScore < this.props.gamestate.score) {
