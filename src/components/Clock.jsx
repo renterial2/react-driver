@@ -1,14 +1,14 @@
 import React from 'react'
 import Countdown from 'react-countdown-now'
 
-const Clock = (props) => {
-        const style = {
-            fontFamily:  '"Press Start 2P", cursive',
-            fontSize: 30,
-            fill: 'white'
-        }
+const Clock = () => {
+    const renderer = ({ seconds }) => {
+        return (
+            <span>{ seconds }</span>
+        )
+    }
     return (
-            <Countdown style={...style} date={Date.now() + 60000}/>
+        <Countdown renderer={renderer} date={Date.now() + 60000}/>    
     )
 }
 
