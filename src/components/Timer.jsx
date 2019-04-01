@@ -10,7 +10,7 @@ const Timer = (props) => {
             fill: 'white'
         }
     }
-    const time = (props.time) / 100
+    const time = Math.round((props.time) / 100)
     return (
         <g>
             <text {...text}>
