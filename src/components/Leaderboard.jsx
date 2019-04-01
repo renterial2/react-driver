@@ -13,18 +13,33 @@ const Leaderboard = (props) => {
     cursor: 'default',
   }
 
+  // let leaderboard = props.leaderboard || []
+  // leaderboard = leaderboard.sort((prev, next) => {
+  //   if (prev.maxScore === next.maxScore) {
+  //     return prev.name <= next.name ? 1 : -1
+  //   }
+  //   return prev.maxScore < next.maxScore ? 1 : -1
+  // }).map((member, index) => ({
+  //   ...member,
+  //   rank: index + 1,
+  //   currentPlayer: member.id === props.currentPlayer.id,
+  // })).filter((member, index) => {
+  //   if (index < 3 || member.id === props.currentPlayer.id) return member
+  //   return null
+  // })
+
   let leaderboard = props.leaderboard || []
   leaderboard = leaderboard.sort((prev, next) => {
     if (prev.maxScore === next.maxScore) {
       return prev.name <= next.name ? 1 : -1
     }
     return prev.maxScore < next.maxScore ? 1 : -1
-  }).map((member, index) => ({
-    ...member,
+  }).map((currentPlayer, index) => ({
+    ...currentPlayer,
     rank: index + 1,
-    currentPlayer: member.id === props.currentPlayer.id,
+    currentPlayer: props.currentPlayer.id,
   })).filter((member, index) => {
-    if (index < 3 || member.id === props.currentPlayer.id) return member
+    if (index < 3 || props.currentPlayer.id) return currentPlayer
     return null
   })
 
