@@ -135,18 +135,17 @@ const mapStateToProps = state => ({
   gamestate: state.gamestate,
   currentPlayer: state.currentPlayer,
   players: state.players,
-  time: state.time
 })
 
 const mapDispatchToProps = dispatch => ({
   moveHazards: () => dispatch({type: 'MOVE_HAZARDS'}),
+  countdown: () => dispatch({type: 'COUNTDOWN'}),
   startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),
   rate: () => dispatch({type: 'RATE'}),
   leaderboardLoaded: (players) => dispatch({type: 'LEADERBOARD_LOADED', players}),
   loggedIn: (player) => dispatch({type: 'LOGGED_IN', player}),
-  countdown: () => dispatch({type: 'COUNTDOWN'}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
