@@ -37,9 +37,9 @@ const Leaderboard = (props) => {
   }).map((currentPlayer, index) => ({
     ...currentPlayer,
     rank: index + 1,
-    currentPlayer: props.currentPlayer.id,
+    currentPlayer: props.currentPlayer,
   })).filter((currentPlayer, index) => {
-    if (index < 3 || props.currentPlayer.id) return currentPlayer
+    if (index < 3 || props.currentPlayer) return currentPlayer
     return null
   })
 
