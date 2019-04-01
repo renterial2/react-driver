@@ -27,7 +27,7 @@ function moveHazards(state, action) {
   //   playCoinSound()
   // }
 
-  countdown()
+  countdown(state)
 
   return {
       ...newState,
