@@ -69,7 +69,7 @@ class App extends Component {
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
-      this.props.countdown()
+      // this.props.countdown()
     }, 10)
 
 
@@ -125,8 +125,7 @@ class App extends Component {
           currentPlayer={this.props.player} 
           gamestate={this.props.gamestate} 
           players={this.props.players} 
-          startGame={this.props.startGame}
-          time={this.props.time} />
+          startGame={this.props.startGame}/>
         <LeftButton id="leftButton" handleClick={(event) => this.moveLeft(event)} />
         <RightButton id="rightButton" handleClick={(event) => this.moveRight(event)} />
       </div>
@@ -142,7 +141,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   moveHazards: () => dispatch({type: 'MOVE_HAZARDS'}),
-  countdown: () => dispatch({type: 'COUNTDOWN'}),
+  // countdown: () => dispatch({type: 'COUNTDOWN'}),
   startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),
