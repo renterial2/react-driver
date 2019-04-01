@@ -1,5 +1,6 @@
 import createHazards from './createHazards'
 import checkCollisions from './checkCollisions'
+import countdown from './countdown'
 // import { playCoinSound } from '../utils/PlayCoinSound'
 
 function moveHazards(state, action) {
@@ -25,6 +26,8 @@ function moveHazards(state, action) {
   // if (hazardsCollected.length > 0) {
   //   playCoinSound()
   // }
+
+  countdown()
 
   return {
       ...newState,

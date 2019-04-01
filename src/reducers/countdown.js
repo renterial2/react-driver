@@ -1,4 +1,4 @@
-function countdown (state, action) {
+function countdown (state) {
     if (!state.gamestate.started) return state
     let gametime = state.gamestate.time
     const time = gametime - 1
