@@ -9,7 +9,7 @@ const initialGameState = {
     currentPlayer: null,
     players: null,
     justScored: false,
-    time: 60000,
+    time: 60,
 }
 
 const initialState = {
