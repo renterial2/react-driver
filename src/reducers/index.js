@@ -63,12 +63,12 @@ function reducer(state = initialState, action) {
 
 
 
-            
+
         case 'LEADERBOARD_LOADED':
             return {
               ...state,
               gamestate: {
-                ...state.gamestate,
+                ...initialGameState,
                 players: action.players,
               }
             }
