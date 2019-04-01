@@ -6,6 +6,7 @@ function countdown (state, action) {
     return {
         ...state,
         gamestate: {
+            ...initialGameState,
             time,
         }
     }
