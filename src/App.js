@@ -64,7 +64,7 @@ class App extends Component {
     window.onresize()
 
 
-    // TODO: decrement the timer from 60 to zero
+    // TODO: decrement the timer
 
     setInterval(() => {
       this.props.rate()
