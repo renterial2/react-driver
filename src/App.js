@@ -63,32 +63,10 @@ class App extends Component {
     }
     window.onresize()
 
-
-    // TODO: decrement the timer
-
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
-      // this.props.countdown()
     }, 10)
-
-
-    // setInterval(() => {
-    //   this.props.countdown()
-    // }, 1000)
-    
-  
-    // var i
-    // for (i = 0; i < 60; i++) {
-    //   setTimeout((this.props.countdown()), 1000)
-    // }
-
-
-    // setTimeout(() => {
-    //   this.props.countdown()
-    // }, 5000)
-
-
 
   }
 
@@ -141,7 +119,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   moveHazards: () => dispatch({type: 'MOVE_HAZARDS'}),
-  // countdown: () => dispatch({type: 'COUNTDOWN'}),
   startGame: () => dispatch({type: 'START_GAME'}),
   moveLeft: () => dispatch({type: 'MOVE_VEHICLELEFT'}),
   moveRight: () => dispatch({type: 'MOVE_VEHICLERIGHT'}),
