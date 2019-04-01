@@ -27,7 +27,10 @@ function moveHazards(state, action) {
   //   playCoinSound()
   // }
 
-  countdown(state)
+  // TODO: decrement the timer
+  // countdown(state)
+
+  const time = state.gamestate.time - 1
 
   return {
       ...newState,
@@ -35,6 +38,8 @@ function moveHazards(state, action) {
         ...newState.gamestate,
         hazards,
         score,
+        currentPlayer,
+        time,
         // justScored: (hazardsCollected.length > 0),
       }
     }
