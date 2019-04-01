@@ -66,6 +66,7 @@ class App extends Component {
     setInterval(() => {
       this.props.rate()
       this.props.moveHazards()
+      this.props.countdown()
     }, 10)
 
 
@@ -81,9 +82,9 @@ class App extends Component {
     // }
 
 
-    setTimeout(() => {
-      this.props.countdown()
-    }, 5000)
+    // setTimeout(() => {
+    //   this.props.countdown()
+    // }, 5000)
 
 
 
