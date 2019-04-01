@@ -8,7 +8,7 @@ const initialGameState = {
     currentPlayer: null,
     players: null,
     justScored: false,
-    time: 600,
+    time: 6000,
 }
 
 const initialState = {
