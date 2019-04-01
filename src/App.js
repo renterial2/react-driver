@@ -24,7 +24,7 @@ class App extends Component {
     this.currentPlayer = null
   }
   
-  componentDidMount(props) {
+  componentDidMount() {
     const self = this
 
     Auth0.handleAuthCallback()
@@ -64,6 +64,7 @@ class App extends Component {
     window.onresize()
 
 
+    // TODO: decrement the timer from 60 to zero
 
     setInterval(() => {
       this.props.rate()
@@ -72,7 +73,6 @@ class App extends Component {
     }, 10)
 
 
-    // TODO: decrement the timer from 60 to zero
     // setInterval(() => {
     //   this.props.countdown()
     // }, 1000)
@@ -125,7 +125,8 @@ class App extends Component {
           currentPlayer={this.props.player} 
           gamestate={this.props.gamestate} 
           players={this.props.players} 
-          startGame={this.props.startGame} />
+          startGame={this.props.startGame}
+          time={this.props.time} />
         <LeftButton id="leftButton" handleClick={(event) => this.moveLeft(event)} />
         <RightButton id="rightButton" handleClick={(event) => this.moveRight(event)} />
       </div>
