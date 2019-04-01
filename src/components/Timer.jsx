@@ -10,10 +10,11 @@ const Timer = (props) => {
             fill: 'white'
         }
     }
+    let time = (props.time) / 100
     return (
         <g>
             <text {...text}>
-                Time:{props.time}
+                Time:{time}
             </text>
         </g>
     )
