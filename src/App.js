@@ -135,6 +135,7 @@ const mapStateToProps = state => ({
   gamestate: state.gamestate,
   currentPlayer: state.currentPlayer,
   players: state.players,
+  time: state.time
 })
 
 const mapDispatchToProps = dispatch => ({

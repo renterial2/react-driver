@@ -36,7 +36,6 @@ const Canvas = (props) => {
                 <g>
                     {/* <Clock /> */}
                     <Timer time={props.gamestate.time}/>
-
                     <CurrentScore score={props.gamestate.score} />
                     <LevelMusic />
                 </g>
