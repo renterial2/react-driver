@@ -21,17 +21,24 @@ function moveHazards(state, action) {
 
   const score = state.gamestate.score + hazardsCollected.length
 
-  // TODO: play coin sound
+  const time = state.gamestate.time - 1
+
+  let started = state.gamestate.started
+  const timeRemaining = time > 0
+  if (!timeRemaining) {
+    started = false
+  }
+
+    // TODO: play coin sound
   // if (hazardsCollected.length > 0) {
   //   playCoinSound()
   // }
-
-  const time = state.gamestate.time - 1
 
   return {
       ...newState,
       gamestate: {
         ...newState.gamestate,
+        started,
         hazards,
         score,
         time,
