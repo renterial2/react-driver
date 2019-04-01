@@ -29,7 +29,7 @@ function moveHazards(state, action) {
     started = false
   }
 
-    // TODO: play coin sound
+  // TODO: play coin sound
   // if (hazardsCollected.length > 0) {
   //   playCoinSound()
   // }
