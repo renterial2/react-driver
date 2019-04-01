@@ -24,7 +24,7 @@ class App extends Component {
     this.currentPlayer = null
   }
   
-  componentDidMount() {
+  componentDidMount(props) {
     const self = this
 
     Auth0.handleAuthCallback()
@@ -62,6 +62,8 @@ class App extends Component {
       cnv.style.height = `${cnvHeight}px`
     }
     window.onresize()
+
+
 
     setInterval(() => {
       this.props.rate()
