@@ -5,6 +5,7 @@ import RightButton from './components/RightButton'
 import LeftButton from './components/LeftButton'
 import * as Auth0 from 'auth0-web'
 import io from 'socket.io-client'
+import Leaderboard from './components/Leaderboard';
 
 Auth0.configure({
   domain: 'renterial.auth0.com',
@@ -45,15 +46,16 @@ class App extends Component {
           query: `token=${Auth0.getAccessToken()}`,
       })
 
-    self.socket.on('players', (players) => {
-      this.props.leaderboardLoaded(players);
-      players.forEach((player) => {
-        if (player.id === self.currentPlayer.id) {
-          self.currentPlayer.maxScore = player.maxScore;
-        }
+      self.socket.on('players', (players) => {
+        this.props.leaderboardLoaded(players)
+        console.log(players)
+        players.forEach((player) => {
+          if (player.id === self.currentPlayer.id) {
+            self.currentPlayer.maxScore = player.maxScore;
+          }
+        })
       })
     })
-  })
 
     window.onresize = () => {
       var cnvHeight = window.innerHeight - 50
