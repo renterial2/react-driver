@@ -1,6 +1,6 @@
 import createHazards from './createHazards'
 import checkCollisions from './checkCollisions'
-import countdown from './countdown'
+// import countdown from './countdown'
 // import { playCoinSound } from '../utils/PlayCoinSound'
 
 function moveHazards(state, action) {
@@ -38,7 +38,6 @@ function moveHazards(state, action) {
         ...newState.gamestate,
         hazards,
         score,
-        currentPlayer,
         time,
         // justScored: (hazardsCollected.length > 0),
       }
