@@ -1,10 +1,10 @@
 import { createInterval, maxHazards, hazardsStarterYAxis, hazardsStarterPositions } from '../utils/constants'
 
 export default (state) => {
-    if ( ! state.gamestate.started) return state; // game not running
+    if ( ! state.gamestate.started) return state // game not running
   
-    const now = (new Date()).getTime();
-    const { lastHazardCreatedAt, hazards } = state.gamestate;
+    const now = (new Date()).getTime()
+    const { lastHazardCreatedAt, hazards } = state.gamestate
     const createNewHazard = (
       now - (lastHazardCreatedAt).getTime() > createInterval &&
       hazards.length < maxHazards

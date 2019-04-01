@@ -32,7 +32,7 @@ function moveHazards(state, action) {
         ...newState.gamestate,
         hazards,
         score,
-        justScored: (hazardsCollected.length > 0),
+        // justScored: (hazardsCollected.length > 0),
       }
     }
 }
